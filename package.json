@@ -1,0 +1,20 @@
+{
+  "name": "deep",
+  "version": "0.0.1",
+  "description": "deep equal",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node ./test",
+    "test": "node ./test -- -v"
+  },
+  "author": "Jascha Ehrenreich <jascha@jaeh.at>",
+  "contributors": [
+    "James Halliday <mail@substack.net>"
+  ],
+  "dependencies": {
+    "types": "file:../types"
+  },
+  "devDependencies": {
+    "test": "file:../test"
+  }
+}
