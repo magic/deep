@@ -11,7 +11,7 @@
   },
   "author": "Jascha Ehrenreich <jascha@jaeh.at>",
   "devDependencies": {
-    "test": "../test",
-    "types": "../types"
+    "test": "git+http://git@localhost:7005/test",
+    "types": "git+http://git@localhost:7005/types"
   }
 }
