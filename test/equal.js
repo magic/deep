@@ -32,6 +32,11 @@ const differentObject = {
   },
 }
 
+const buff = new Buffer('testing')
+const buff2 = new Buffer('testink')
+
+const fn = () => {}
+
 const fns = [
   { fn: () => deep.equal({}, {}), expect: true },
   { fn: () => deep.equal(object, object), expect: true },
@@ -46,6 +51,11 @@ const fns = [
   // functions do not compare as equal
   { fn: () => deep.equal({t: () => {}}, {t: function () {}}), expect: false },
   { fn: () => deep.equal({t: () => {}}, {t: () => {}}), expect: false },
+  { fn: () => deep.equal(fn, fn), expect: true },
+  { fn: () => deep.equal('string', ['string']), expect: false, },
+  { fn: () => deep.equal(buff, buff2), expect: false, },
+  { fn: () => deep.equal(buff, buff), expect: true, },
+  { fn: () => deep.equal(buff, 'string'), expect: false, },
 ]
 
 module.exports = fns
