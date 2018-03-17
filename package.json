@@ -4,12 +4,25 @@
   "description": "deep equal",
   "main": "src/index.js",
   "scripts": {
-    "start": "node test/",
-    "test": "VERBOSE=true node test/ -- -v",
-    "test:multirun": "VERBOSE=true RUNS=10 node test/",
-    "coverage": "nyc npm test"
+    "start": "nyc -a node test/",
+    "test": "VERBOSE=true nyc -a node test/",
+    "lint": "esw -w ./src ./test",
+    "lint:fix": "eslint --fix ./src ./test"
   },
   "author": "Jascha Ehrenreich <jascha@jaeh.at>",
+  "eslintConfig": {
+    "extends": "standard",
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ]
+    }
+  },
   "devDependencies": {
     "test": "git+http://git@localhost:7005/test",
     "types": "git+http://git@localhost:7005/types"

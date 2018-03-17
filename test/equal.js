@@ -1,5 +1,3 @@
-const run = require('test')
-
 const deep = require('../src')
 
 const object = {
@@ -32,10 +30,18 @@ const differentObject = {
   },
 }
 
-const buff = new Buffer('testing')
-const buff2 = new Buffer('testink')
+const buff = Buffer.from('testing', 'utf8')
+const buff2 = Buffer.from('testink', 'utf8')
 
 const fn = () => {}
+
+const prot1 = {}
+prot1.prototype = Error
+
+const prot2 = {}
+prot2.prototype = Date
+
+const date = new Date()
 
 const fns = [
   { fn: () => deep.equal({}, {}), expect: true },
@@ -52,10 +58,21 @@ const fns = [
   { fn: () => deep.equal({t: () => {}}, {t: function () {}}), expect: false },
   { fn: () => deep.equal({t: () => {}}, {t: () => {}}), expect: false },
   { fn: () => deep.equal(fn, fn), expect: true },
-  { fn: () => deep.equal('string', ['string']), expect: false, },
-  { fn: () => deep.equal(buff, buff2), expect: false, },
-  { fn: () => deep.equal(buff, buff), expect: true, },
-  { fn: () => deep.equal(buff, 'string'), expect: false, },
+  { fn: () => deep.equal('string', ['string']), expect: false },
+  { fn: () => deep.equal(buff, buff2), expect: false },
+  { fn: () => deep.equal(buff, buff), expect: true },
+  { fn: () => deep.equal(buff, 'string'), expect: false },
+  { fn: () => deep.equal(arguments, arguments), expect: true },
+  { fn: () => deep.equal(prot1, prot1), expect: true },
+  { fn: () => deep.equal(prot1, prot2), expect: false },
+  { fn: () => deep.equal(date, date), expect: true },
+  { fn: () => deep.equal(date, new Date()), expect: false },
+  { fn: () => deep.equal(date, ''), expect: false },
+  { fn: () => deep.equal(date), expect: false },
+  { fn: () => deep.equal(date, null), expect: false },
+  { fn: () => deep.equal(null, null), expect: true },
+  { fn: () => deep.equal(null), expect: false },
+  { fn: () => deep.equal(), expect: false },
 ]
 
 module.exports = fns
