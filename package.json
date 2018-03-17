@@ -13,14 +13,9 @@
   "eslintConfig": {
     "extends": "standard",
     "rules": {
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "brace-style": [
-        "error",
-        "stroustrup"
-      ]
+      "comma-dangle": ["error", "always-multiline"],
+      "brace-style": ["error", "stroustrup"],
+      "semi": ["error", "never"]
     }
   },
   "devDependencies": {
