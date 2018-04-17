@@ -1,25 +1,24 @@
 {
   "name": "deep",
   "version": "0.0.1",
-  "description": "deep equal",
+  "description": "manipulate nested objects and arrays",
   "main": "src/index.js",
   "scripts": {
-    "start": "nyc -a node test/",
-    "test": "VERBOSE=true nyc -a node test/",
-    "lint": "esw -w ./src ./test",
-    "lint:fix": "eslint --fix ./src ./test"
+    "start": "t -p",
+    "test": "t",
+    "format": "f -w",
+    "format:check": "f"
   },
   "author": "Jascha Ehrenreich <jascha@jaeh.at>",
-  "eslintConfig": {
-    "extends": "standard",
-    "rules": {
-      "comma-dangle": ["error", "always-multiline"],
-      "brace-style": ["error", "stroustrup"],
-      "semi": ["error", "never"]
-    }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/magic/deep"
   },
+  "bugs": {
+    "url": "https://github.com/magic/deep/issues"
+  },
+  "homepage": "https://github.com/magic/deep",
   "devDependencies": {
-    "test": "git+http://git@localhost:7005/test",
-    "types": "git+http://git@localhost:7005/types"
+    "@magic/test": "github:magic/test"
   }
 }
