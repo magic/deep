@@ -10,10 +10,12 @@ Work with deeply nested objects and arrays.
 ##### import
 ```javascript
   // single function
-  const { equal } = require('@magic/deep')
+  const { equal, flatten, loop } = require('@magic/deep')
 
   // object with all functions
   const deep = require('@magic/deep')
+  // deep.equal, deep.flatten, deep.loop
+
 ```
 
 Currently implemented:
