@@ -2,7 +2,6 @@ const is = require('@magic/types')
 
 const loop = (fn, items) => {
   if (!is.function(fn) && is.function(items)) {
-    console.log('switch', { fn, items })
     const fns = fn
     fn = items
     items = fns
