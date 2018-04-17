@@ -1,20 +1,26 @@
-const { isObject, isDate, isError, isFunction } = require('types')
+const is = require('@magic/types')
 
-const loop = (items, fn) => {
-  if (!isFunction(fn)) {
+const loop = (fn, items) => {
+  if (!is.function(fn) && is.function(items)) {
+    console.log('switch', { fn, items })
+    const fns = fn
+    fn = items
+    items = fns
+  }
+
+  if (!is.function(fn)) {
     return items
   }
 
-  if (!isObject(items) && !isDate(items) && !isError(items)) {
+  if (!items) {
+    return
+  }
+
+  if (!is.function(items.map)) {
     return fn(items)
   }
 
-  const loopedItems = {}
-  Object.keys(items).forEach(k => {
-    loopedItems[k] = loop(items[k], fn)
-  })
-
-  return loopedItems
+  return items.map(arg => loop(fn, arg))
 }
 
 module.exports = loop
