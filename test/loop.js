@@ -31,6 +31,16 @@ const fns = [
   { fn: () => deep.loop(['test'], () => {}), expect: t => t[0] === undefined },
   { fn: () => deep.loop(add, items), expect },
   { fn: () => deep.loop(items, add), expect },
+  {
+    fn: () => deep.loop(() => true, () => false),
+    expect: true,
+    info: 'First function wraps around second function',
+  },
+  {
+    fn: () => deep.loop(() => false, () => true),
+    expect: false,
+    info: 'First function wraps around second function',
+  },
 ]
 
 module.exports = fns
