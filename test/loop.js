@@ -2,6 +2,10 @@ const is = require('@magic/types')
 
 const deep = require('../src')
 
+const add = e => e + 1
+const items = [1, 2, [3]]
+const expect = t => deep.equal(t, [2, 3, [4]])
+
 const fns = [
   { fn: () => deep.loop(e => e, ['test']), expect: is.array },
   {
@@ -25,6 +29,8 @@ const fns = [
     expect: t => deep.equal(t, ['applied', 'applied', ['applied']]),
   },
   { fn: () => deep.loop(['test'], () => {}), expect: t => t[0] === undefined },
+  { fn: () => deep.loop(add, items), expect },
+  { fn: () => deep.loop(items, add), expect },
 ]
 
 module.exports = fns
