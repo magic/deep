@@ -1,29 +1,34 @@
 // Written by Substack <3
 
-const { isBuffer, isUndefinedOrNull, isDate, isObject } = require('types')
+const {
+  isBuffer,
+  isUndefinedOrNull,
+  isDate,
+  isObject,
+} = require('@magic/types')
 
-const equal = (actual, expected = {}) => {
+const equal = (a, b = {}) => {
   // 7.1. All identical values are equivalent, as determined by ===.
-  if (actual === expected) {
+  if (a === b) {
     return true
   }
 
-  if (isDate(actual)) {
-    if (!isDate(expected)) {
+  if (isDate(a)) {
+    if (!isDate(b)) {
       return false
     }
 
-    return actual.getTime() === expected.getTime()
+    return a.getTime() === b.getTime()
   }
 
   // 7.3. Other pairs that do not both pass typeof value == 'object',
   // equivalence is determined by ==.
-  if (!actual || !expected) {
-    return actual === expected
+  if (!a || !b) {
+    return a === b
   }
 
-  if (!isObject(actual) || !isObject(expected)) {
-    return actual === expected
+  if (!isObject(a) || !isObject(b)) {
+    return a === b
   }
 
   // 7.4. For all other Object pairs, including Array objects, equivalence is
@@ -32,7 +37,7 @@ const equal = (actual, expected = {}) => {
   // (although not necessarily the same order), equivalent values for every
   // corresponding key, and an identical 'prototype' property. Note: this
   // accounts for both named and indexed properties on Arrays.
-  return objEqual(actual, expected)
+  return objEqual(a, b)
 }
 
 const objEqual = (a, b) => {
