@@ -1,57 +1,51 @@
 // Written by Substack <3
 
-const {
-  isBuffer,
-  isUndefinedOrNull,
-  isDate,
-  isObject,
-} = require('@magic/types')
+const is = require('@magic/types')
+
+const comparable = t => !t || is.boolean(t) || is.string(t) || is.number(t)
 
 const equal = (a, b = {}) => {
-  // 7.1. All identical values are equivalent, as determined by ===.
+  // cheap
   if (a === b) {
     return true
   }
 
-  if (isDate(a)) {
-    if (!isDate(b)) {
+  // types must match
+  if (typeof a !== typeof b) {
+    return false
+  }
+
+  // bool, string, number, falsy values
+  if (comparable(a) || comparable(b)) {
+    return a === b
+  }
+
+  // identical 'prototype' property.
+  if (a.prototype !== b.prototype) {
+    return false
+  }
+
+  // dates
+  if (is.date(a)) {
+    if (!is.date(b)) {
       return false
     }
 
     return a.getTime() === b.getTime()
   }
 
-  // 7.3. Other pairs that do not both pass typeof value == 'object',
-  // equivalence is determined by ==.
-  if (!a || !b) {
-    return a === b
+  // functions
+  if (is.function(a)) {
+    if (!is.function(b)) {
+      return false
+    }
+
+    return a.toString() === b.toString()
   }
 
-  if (!isObject(a) || !isObject(b)) {
-    return a === b
-  }
-
-  // 7.4. For all other Object pairs, including Array objects, equivalence is
-  // determined by having the same number of owned properties (as verified
-  // with Object.prototype.hasOwnProperty.call), the same set of keys
-  // (although not necessarily the same order), equivalent values for every
-  // corresponding key, and an identical 'prototype' property. Note: this
-  // accounts for both named and indexed properties on Arrays.
-  return objEqual(a, b)
-}
-
-const objEqual = (a, b) => {
-  if (isUndefinedOrNull(a) || isUndefinedOrNull(b)) {
-    return false
-  }
-
-  // an identical 'prototype' property.
-  if (a.prototype !== b.prototype) {
-    return false
-  }
-
-  if (isBuffer(a)) {
-    if (!isBuffer(b)) {
+  // buffers
+  if (is.buffer(a)) {
+    if (!is.buffer(b)) {
       return false
     }
     if (a.length !== b.length) {
@@ -67,6 +61,7 @@ const objEqual = (a, b) => {
     return true
   }
 
+  // objects
   const ka = Object.keys(a)
   const kb = Object.keys(b)
 
@@ -98,7 +93,4 @@ const objEqual = (a, b) => {
   return typeof a === typeof b
 }
 
-module.exports = {
-  equal,
-  objEqual,
-}
+module.exports = equal

@@ -1,12 +1,16 @@
-const { isFunction } = require('types')
+const is = require('@magic/types')
 
 const deep = require('../src')
 
+const funcs = [
+  deep.equal,
+  deep.equals,
+  deep.loop,
+  deep.flatten,
+]
+
 const fns = [
-  { fn: () => deep.equal, expect: isFunction },
-  { fn: () => deep.equals, expect: isFunction },
-  { fn: () => deep.objEqual, expect: isFunction },
-  { fn: () => deep.loop, expect: isFunction },
+  { fn: () => funcs.filter(is.function), expect: t => t.length === funcs.length },
 ]
 
 module.exports = fns

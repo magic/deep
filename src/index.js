@@ -1,9 +1,8 @@
-const { equal, objEqual } = require('./equal')
-const loop = require('./loop')
+const equal = require('./equal')
 
 module.exports = {
   equal,
   equals: equal,
-  objEqual,
-  loop,
+  loop: require('./loop'),
+  flatten: require('./flatten'),
 }
