@@ -20,5 +20,8 @@
   "homepage": "https://github.com/magic/deep",
   "devDependencies": {
     "@magic/test": "github:magic/test"
+  },
+  "dependencies": {
+    "@magic/types": "github:magic/types"
   }
 }
