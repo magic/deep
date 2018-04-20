@@ -1,5 +1,5 @@
 {
-  "name": "deep",
+  "name": "@magic/deep",
   "version": "0.0.1",
   "description": "manipulate nested objects and arrays",
   "main": "src/index.js",
