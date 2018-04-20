@@ -1,10 +1,16 @@
 const is = require('@magic/types')
 
-const loop = (fn, items) => {
+const loop = (fn, ...items) => {
+  if (is.empty(items)) {
+    return fn(items)
+  } else if (items.length === 1) {
+    items = items[0]
+  }
+
   if (!is.function(fn) && is.function(items)) {
-    const fns = fn
+    const oldFn = fn
     fn = items
-    items = fns
+    items = oldFn
   }
 
   if (!is.function(fn)) {
@@ -12,14 +18,14 @@ const loop = (fn, items) => {
   }
 
   if (!items) {
-    return
+    return fn(items)
   }
 
   if (!is.function(items.map)) {
     return fn(items)
   }
 
-  return items.map(arg => loop(fn, arg))
+  return items.map(item => loop(fn, item))
 }
 
 module.exports = loop
