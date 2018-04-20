@@ -1,16 +1,16 @@
-const is = require('@magic/types')
+const { is } = require('@magic/test')
 
 const deep = require('../src')
-
-const add = e => e + 1
-const items = [1, 2, [3]]
-const expect = t => deep.equal(t, [2, 3, [4]])
 
 const fns = [
   { fn: () => deep.loop(e => e, ['test']), expect: is.array },
   {
-    fn: () => deep.loop(e => e, ['test'], {}),
-    expect: t => t && t[0] === 'test',
+    fn: () => deep.loop(e => e, ['test'], {})[0][0],
+    expect: 'test',
+  },
+  {
+    fn: () => deep.loop(e => e, ['test'], {})[1],
+    expect: is.object,
   },
   { fn: () => deep.loop(e => e, ['test'], {}), expect: is.object },
   { fn: () => deep.loop(), expect: undefined },
@@ -28,18 +28,31 @@ const fns = [
     fn: () => deep.loop(() => 'applied', ['test', 'test2', ['test3']]),
     expect: t => deep.equal(t, ['applied', 'applied', ['applied']]),
   },
-  { fn: () => deep.loop(['test'], () => {}), expect: t => t[0] === undefined },
-  { fn: () => deep.loop(add, items), expect },
-  { fn: () => deep.loop(items, add), expect },
+  { fn: () => deep.loop(['test'], () => {})[0], expect: undefined },
+  {
+    fn: () => deep.loop(e => e + 1, [1, 2, [3]]),
+    expect: t => deep.equal(t, [2, 3, [4]]),
+  },
+  {
+    fn: () => deep.loop([2, 3, [1]], e => e + 1),
+    expect: t => deep.equal(t, [3, 4, [2]]),
+  },
   {
     fn: () => deep.loop(() => true, () => false),
-    expect: true,
     info: 'First function wraps around second function',
   },
   {
     fn: () => deep.loop(() => false, () => true),
     expect: false,
     info: 'First function wraps around second function',
+  },
+  {
+    fn: () => deep.loop(() => true, false, () => false)[0],
+    info: 'First function wraps around second argument if third is a function',
+  },
+  {
+    fn: () => deep.loop(() => true, false, () => false)[1],
+    info: 'First function wraps around third function',
   },
 ]
 

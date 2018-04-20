@@ -1,14 +1,9 @@
-const is = require('@magic/types')
+const { is } = require('@magic/test')
 
 const deep = require('../src')
 
 const funcs = [deep.equal, deep.equals, deep.loop, deep.flatten]
 
-const fns = [
-  {
-    fn: () => funcs.filter(is.function),
-    expect: t => t.length === funcs.length,
-  },
-]
+const fns = [{ fn: () => funcs.every(is.function), expect: true }]
 
 module.exports = fns

@@ -1,3 +1,5 @@
+const { is } = require('@magic/test')
+
 const deep = require('../src')
 
 const object = {
@@ -45,6 +47,7 @@ const date = new Date()
 
 const fns = [
   { fn: () => deep.equal({}, {}), expect: true },
+  { fn: () => deep.equal({}, {}), expect: true },
   { fn: () => deep.equal(object, object), expect: true },
   { fn: () => deep.equal(object, otherObject), expect: true },
   { fn: () => deep.equal(1, 1), expect: true },
@@ -62,6 +65,10 @@ const fns = [
   { fn: () => deep.equal({ t: () => {} }, { t: () => {} }), expect: true },
   {
     fn: () => deep.equal({ t: (a, b) => a + b }, { t: (a, b) => a + b }),
+    expect: true,
+  },
+  {
+    fn: () => deep.equal({ t: (a, b) => [a, b] }, { t: (a, b) => [a, b] }),
     expect: true,
   },
   {
@@ -87,11 +94,18 @@ const fns = [
   { fn: () => deep.equal(date, date), expect: true },
   { fn: () => deep.equal(date, new Date()), expect: false },
   { fn: () => deep.equal(date, ''), expect: false },
-  { fn: () => deep.equal(date), expect: false },
-  { fn: () => deep.equal(date, null), expect: false },
   { fn: () => deep.equal(null, null), expect: true },
   { fn: () => deep.equal(null), expect: false },
   { fn: () => deep.equal(), expect: false },
+  { fn: () => deep.equal(date, null), expect: false },
+  // currying
+  { fn: () => deep.equal(date), expect: is.function },
+  { fn: () => ['test'], expect: deep.equal(['test']) },
+  { fn: () => ({ t: 't' }), expect: deep.equal({ t: 't' }) },
+  { fn: () => () => {}, expect: deep.equal(() => {}) },
+  { fn: () => deep.equal(() => {})(a => a), expect: false },
+  { fn: () => deep.equal([])('test'), expect: false },
+  { fn: () => deep.equal({ t: 't' })(['test']), expect: false },
 ]
 
 module.exports = fns

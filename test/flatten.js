@@ -13,7 +13,7 @@ const fns = [
   {
     fn: () => s(deep.flatten([2], [[3]])),
     expect: s([2, 3]),
-    info: 'No funky mathematics',
+    info: 'No funky mathematics are happening',
   },
   {
     fn: () => s(deep.flatten(['shallow'], [{ keeps: 'object' }])),
@@ -42,7 +42,7 @@ const fns = [
   },
   {
     fn: () => deep.flatten(['test'], [[[[[{ fn: () => {} }]]]]]),
-    expect: a => a[1].fn.toString() === (() => {}).toString(),
+    expect: a => deep.equal(a[1].fn, () => {}),
     info: 'Keep functions in objects intact',
   },
 ]
