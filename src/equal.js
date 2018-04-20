@@ -2,12 +2,25 @@
 
 const is = require('@magic/types')
 
-const comparable = t => !t || is.boolean(t) || is.string(t) || is.number(t)
+const comparable = t => is.boolean(t) || is.string(t) || is.number(t)
 
-const equal = (a, b = {}) => {
+const equal = (a = null, b) => {
   // cheap
   if (a === b) {
     return true
+  }
+
+  // curry
+  if (is.undefined(b)) {
+    if (is.null(a)) {
+      return false
+    }
+
+    return c => equal(a, c)
+  }
+
+  if (is.null(b)) {
+    return a === b
   }
 
   // types must match

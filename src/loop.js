@@ -2,7 +2,11 @@ const is = require('@magic/types')
 
 const loop = (fn, ...items) => {
   if (is.empty(items)) {
-    return fn(items)
+    if (is.fn(fn)) {
+      return fn(items)
+    }
+
+    return
   } else if (items.length === 1) {
     items = items[0]
   }
