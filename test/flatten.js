@@ -1,48 +1,48 @@
-const deep = require('../src')
+const { is } = require('@magic/test')
 
-const s = t => JSON.stringify(t)
+const { flatten } = require('../src')
 
 const date = new Date()
 
 const fns = [
   {
-    fn: () => s(deep.flatten(['shallow'], [['deep']])),
-    expect: s(['shallow', 'deep']),
+    fn: () => flatten(['shallow'], [['deep']]),
+    expect: is.deep.equal(['shallow', 'deep']),
     info: 'Flatten an array',
   },
   {
-    fn: () => s(deep.flatten([2], [[3]])),
-    expect: s([2, 3]),
+    fn: () => flatten([2], [[3]]),
+    expect: is.deep.equal([2, 3]),
     info: 'No funky mathematics are happening',
   },
   {
-    fn: () => s(deep.flatten(['shallow'], [{ keeps: 'object' }])),
-    expect: s(['shallow', { keeps: 'object' }]),
+    fn: () => flatten(['shallow'], [{ keeps: 'object' }]),
+    expect: is.deep.equal(['shallow', { keeps: 'object' }]),
     info: 'Keep objects intact',
   },
   {
-    fn: () => s(deep.flatten(['test'], [[[[['moria']]]]])),
-    expect: s(['test', 'moria']),
+    fn: () => flatten(['test'], [[[[['moria']]]]]),
+    expect: is.deep.equal(['test', 'moria']),
     info: 'Can descend to the deepest crypts of moria',
   },
   {
-    fn: () => s(deep.flatten(['test'], [[[[[date]]]]])),
-    expect: s(['test', date]),
+    fn: () => flatten(['test'], [[[[[date]]]]]),
+    expect: is.deep.equal(['test', date]),
     info: 'Keep dates intact',
   },
   {
-    fn: () => deep.flatten(['test'], [[[[[date]]]]]),
+    fn: () => flatten(['test'], [[[[[date]]]]]),
     expect: a => a[1].getTime() === date.getTime(),
     info: 'Keep dates intact',
   },
   {
-    fn: () => deep.flatten(['test'], [[[[[() => {}]]]]]),
+    fn: () => flatten(['test'], [[[[[() => {}]]]]]),
     expect: a => a[1].toString() === (() => {}).toString(),
     info: 'Keep functions intact',
   },
   {
-    fn: () => deep.flatten(['test'], [[[[[{ fn: () => {} }]]]]]),
-    expect: a => deep.equal(a[1].fn, () => {}),
+    fn: () => flatten(['test'], [[[[[{ fn: () => {} }]]]]]),
+    expect: a => is.deep.equal(a[1].fn, () => {}),
     info: 'Keep functions in objects intact',
   },
 ]

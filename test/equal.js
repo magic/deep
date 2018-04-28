@@ -57,32 +57,12 @@ const fns = [
   { fn: () => deep.equal(0, 0), expect: true },
   { fn: () => deep.equal(0, 1), expect: false },
   { fn: () => deep.equal(otherObject, differentObject), expect: false },
-  // functions do not compare as equal
-  {
-    fn: () => deep.equal({ t: () => {} }, { t: function() {} }),
-    expect: false,
-  },
+  // functions do not compare as equal if their toString results are different
+  { fn: () => deep.equal({ t: () => {} }, { t: function() {} }), expect: false },
   { fn: () => deep.equal({ t: () => {} }, { t: () => {} }), expect: true },
-  {
-    fn: () => deep.equal({ t: (a, b) => a + b }, { t: (a, b) => a + b }),
-    expect: true,
-  },
-  {
-    fn: () => deep.equal({ t: (a, b) => [a, b] }, { t: (a, b) => [a, b] }),
-    expect: true,
-  },
-  {
-    fn: () =>
-      deep.equal(
-        {
-          t: (a, b) => {
-            a + b
-          },
-        },
-        { t: (a, b) => a + b },
-      ),
-    expect: false,
-  },
+  { fn: () => deep.equal({ t: (a, b) => a + b }, { t: (a, b) => a + b }), expect: true },
+  { fn: () => deep.equal({ t: (a, b) => [a, b] }, { t: (a, b) => [a, b] }), expect: true },
+  { fn: () => deep.equal({ t: (a, b) => { a + b } }, { t: (a, b) => a + b }), expect: false },
   { fn: () => deep.equal(fn, fn), expect: true },
   { fn: () => deep.equal('string', ['string']), expect: false },
   { fn: () => deep.equal(buff, buff2), expect: false },

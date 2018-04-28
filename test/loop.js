@@ -4,14 +4,8 @@ const deep = require('../src')
 
 const fns = [
   { fn: () => deep.loop(e => e, ['test']), expect: is.array },
-  {
-    fn: () => deep.loop(e => e, ['test'], {})[0][0],
-    expect: 'test',
-  },
-  {
-    fn: () => deep.loop(e => e, ['test'], {})[1],
-    expect: is.object,
-  },
+  { fn: () => deep.loop(e => e, ['test'], {})[0][0], expect: 'test' },
+  { fn: () => deep.loop(e => e, ['test'], {})[1], expect: is.object },
   { fn: () => deep.loop(e => e, ['test'], {}), expect: is.object },
   { fn: () => deep.loop(), expect: undefined },
   {
@@ -29,22 +23,13 @@ const fns = [
     expect: t => deep.equal(t, ['applied', 'applied', ['applied']]),
   },
   { fn: () => deep.loop(['test'], () => {})[0], expect: undefined },
-  {
-    fn: () => deep.loop(e => e + 1, [1, 2, [3]]),
-    expect: t => deep.equal(t, [2, 3, [4]]),
-  },
-  {
-    fn: () => deep.loop([2, 3, [1]], e => e + 1),
-    expect: t => deep.equal(t, [3, 4, [2]]),
-  },
-  {
-    fn: () => deep.loop(() => true, () => false),
-    info: 'First function wraps around second function',
-  },
+  { fn: () => deep.loop(e => e + 1, [1, 2, [3]]), expect: t => deep.equal(t, [2, 3, [4]]) },
+  { fn: () => deep.loop([2, 3, [1]], e => e + 1), expect: t => deep.equal(t, [3, 4, [2]]) },
+  { fn: () => deep.loop(() => true, () => false), info: 'First function wraps around second' },
   {
     fn: () => deep.loop(() => false, () => true),
     expect: false,
-    info: 'First function wraps around second function',
+    info: 'First function wraps around second',
   },
   {
     fn: () => deep.loop(() => true, false, () => false)[0],
