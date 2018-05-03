@@ -8,4 +8,5 @@ module.exports = {
   diff: different,
   loop: require('./loop'),
   flatten: require('./flatten'),
+  merge: require('./merge'),
 }
