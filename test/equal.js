@@ -33,7 +33,7 @@ const differentObject = {
 }
 
 const buff = Buffer.from('testing', 'utf8')
-const buff2 = Buffer.from('testink', 'utf8')
+const buff2 = Buffer.from('testinkkk', 'utf8')
 
 const fn = () => {}
 
@@ -86,7 +86,7 @@ const fns = [
   { fn: () => deep.equal(date, new Date()), expect: false },
   { fn: () => deep.equal(date, ''), expect: false },
   { fn: () => deep.equal(null, null), expect: true },
-  { fn: () => deep.equal(null), expect: false },
+  { fn: () => deep.equal(null), expect: is.function },
   { fn: () => deep.equal(), expect: false },
   { fn: () => deep.equal(date, null), expect: false },
   // currying
@@ -97,6 +97,7 @@ const fns = [
   { fn: () => deep.equal(() => {})(a => a), expect: false },
   { fn: () => deep.equal([])('test'), expect: false },
   { fn: () => deep.equal({ t: 't' })(['test']), expect: false },
+  { fn: () => deep.equal(1, 2), expect: false }
 ]
 
 module.exports = fns

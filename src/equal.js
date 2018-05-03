@@ -17,6 +17,11 @@ const equal = (a, b) => {
     return a === b
   }
 
+  // types must match
+  if (typeof a !== typeof b) {
+    return false
+  }
+
   // bool, string, number, falsy values
   if (is.comparable(a) || is.comparable(b)) {
     return a === b
@@ -31,15 +36,10 @@ const equal = (a, b) => {
     return false
   }
 
-  // types must match
-  if (typeof a !== typeof b) {
+  // real types must match too
+  if (Object.prototype.toString.call(a) !== Object.prototype.toString.call(b)) {
     return false
   }
-
-  // real types must match too
-  // if (Object.prototype.toString.call(a) !== Object.prototype.toString.call(b)) {
-  //   return false
-  // }
 
   // dates
   if (is.date(a)) {
