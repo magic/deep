@@ -3,7 +3,7 @@ const is = require('@magic/types')
 const loop = (fn, ...items) => {
   if (is.empty(items)) {
     if (is.fn(fn)) {
-      return fn(items)
+      return fn(...items)
     }
 
     return
@@ -18,7 +18,7 @@ const loop = (fn, ...items) => {
   }
 
   if (!is.function(fn)) {
-    return items
+    return [fn, items]
   }
 
   if (!items) {
