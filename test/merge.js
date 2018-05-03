@@ -1,6 +1,6 @@
 const { is } = require('@magic/test')
 
-const merge = require('../../src/merge')
+const merge = require('../src/merge')
 
 module.exports = [
   { fn: () => merge([1], 2), expect: is.deep.eq([1, 2]) },
