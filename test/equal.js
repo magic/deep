@@ -1,6 +1,6 @@
 const { is } = require('@magic/test')
 
-const deep = require('../src')
+const { equal } = require('../src')
 
 const object = {
   string: 'string',
@@ -46,25 +46,25 @@ prot2.prototype = Date
 const date = new Date()
 
 const fns = [
-  { fn: () => deep.equal({}, {}), expect: true },
-  { fn: () => deep.equal({}, {}), expect: true },
-  { fn: () => deep.equal(object, object), expect: true },
-  { fn: () => deep.equal(object, otherObject), expect: true },
-  { fn: () => deep.equal(1, 1), expect: true },
-  { fn: () => deep.equal('string', 'string'), expect: true },
-  { fn: () => deep.equal({}, ''), expect: false },
-  { fn: () => deep.equal({}, object), expect: false },
-  { fn: () => deep.equal(0, 0), expect: true },
-  { fn: () => deep.equal(0, 1), expect: false },
-  { fn: () => deep.equal(otherObject, differentObject), expect: false },
+  { fn: () => equal({}, {}), expect: true },
+  { fn: () => equal({}, {}), expect: true },
+  { fn: () => equal(object, object), expect: true },
+  { fn: () => equal(object, otherObject), expect: true },
+  { fn: () => equal(1, 1), expect: true },
+  { fn: () => equal('string', 'string'), expect: true },
+  { fn: () => equal({}, ''), expect: false },
+  { fn: () => equal({}, object), expect: false },
+  { fn: () => equal(0, 0), expect: true },
+  { fn: () => equal(0, 1), expect: false },
+  { fn: () => equal(otherObject, differentObject), expect: false },
   // functions do not compare as equal if their toString results are different
-  { fn: () => deep.equal({ t: () => {} }, { t: function() {} }), expect: false },
-  { fn: () => deep.equal({ t: () => {} }, { t: () => {} }), expect: true },
-  { fn: () => deep.equal({ t: (a, b) => a + b }, { t: (a, b) => a + b }), expect: true },
-  { fn: () => deep.equal({ t: (a, b) => [a, b] }, { t: (a, b) => [a, b] }), expect: true },
+  { fn: () => equal({ t: () => {} }, { t: function() {} }), expect: false },
+  { fn: () => equal({ t: () => {} }, { t: () => {} }), expect: true },
+  { fn: () => equal({ t: (a, b) => a + b }, { t: (a, b) => a + b }), expect: true },
+  { fn: () => equal({ t: (a, b) => [a, b] }, { t: (a, b) => [a, b] }), expect: true },
   {
     fn: () =>
-      deep.equal(
+      equal(
         {
           t: (a, b) => {
             a + b
@@ -74,30 +74,30 @@ const fns = [
       ),
     expect: false,
   },
-  { fn: () => deep.equal(fn, fn), expect: true },
-  { fn: () => deep.equal('string', ['string']), expect: false },
-  { fn: () => deep.equal(buff, buff2), expect: false },
-  { fn: () => deep.equal(buff, buff), expect: true },
-  { fn: () => deep.equal(buff, 'string'), expect: false },
-  { fn: () => deep.equal(arguments, arguments), expect: true },
-  { fn: () => deep.equal(prot1, prot1), expect: true },
-  { fn: () => deep.equal(prot1, prot2), expect: false },
-  { fn: () => deep.equal(date, date), expect: true },
-  { fn: () => deep.equal(date, new Date()), expect: false },
-  { fn: () => deep.equal(date, ''), expect: false },
-  { fn: () => deep.equal(null, null), expect: true },
-  { fn: () => deep.equal(null), expect: is.function },
-  { fn: () => deep.equal(), expect: false },
-  { fn: () => deep.equal(date, null), expect: false },
+  { fn: () => equal(fn, fn), expect: true },
+  { fn: () => equal('string', ['string']), expect: false },
+  { fn: () => equal(buff, buff2), expect: false },
+  { fn: () => equal(buff, buff), expect: true },
+  { fn: () => equal(buff, 'string'), expect: false },
+  { fn: () => equal(arguments, arguments), expect: true },
+  { fn: () => equal(prot1, prot1), expect: true },
+  { fn: () => equal(prot1, prot2), expect: false },
+  { fn: () => equal(date, date), expect: true },
+  { fn: () => equal(date, new Date()), expect: false },
+  { fn: () => equal(date, ''), expect: false },
+  { fn: () => equal(null, null), expect: true },
+  { fn: () => equal(null), expect: is.function },
+  { fn: () => equal(), expect: false },
+  { fn: () => equal(date, null), expect: false },
   // currying
-  { fn: () => deep.equal(date), expect: is.function },
-  { fn: () => ['test'], expect: deep.equal(['test']) },
-  { fn: () => ({ t: 't' }), expect: deep.equal({ t: 't' }) },
-  { fn: () => () => {}, expect: deep.equal(() => {}) },
-  { fn: () => deep.equal(() => {})(a => a), expect: false },
-  { fn: () => deep.equal([])('test'), expect: false },
-  { fn: () => deep.equal({ t: 't' })(['test']), expect: false },
-  { fn: () => deep.equal(1, 2), expect: false }
+  { fn: () => equal(date), expect: is.function },
+  { fn: () => ['test'], expect: equal(['test']) },
+  { fn: () => ({ t: 't' }), expect: equal({ t: 't' }) },
+  { fn: () => () => {}, expect: equal(() => {}) },
+  { fn: () => equal(() => {})(a => a), expect: false },
+  { fn: () => equal([])('test'), expect: false },
+  { fn: () => equal({ t: 't' })(['test']), expect: false },
+  { fn: () => equal(1, 2), expect: false },
 ]
 
 module.exports = fns
