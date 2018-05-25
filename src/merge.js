@@ -1,8 +1,10 @@
 const is = require('@magic/types')
 
 const merge = (o1, o2) => {
-  if (is.falsy(o1)) {
+  if (typeof o1 === 'undefined') {
     return o2
+  } else if (typeof o2 === 'undefined') {
+    return o1
   }
 
   if (is.array(o1)) {

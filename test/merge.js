@@ -23,4 +23,5 @@ module.exports = [
     expect: is.deep.eq({ t: { t: 4, tt: 2 } }),
   },
   { fn: () => merge({ t: { t: 4 } }, 'test'), expect: is.deep.eq([{ t: { t: 4 } }, 'test']) },
+  { fn: () => merge({ t: { t: 4 } }), expect: is.deep.eq({ t: { t: 4 } }) },
 ]
