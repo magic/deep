@@ -43,7 +43,7 @@ const equal = (a, b) => {
 
   // dates
   if (is.date(a)) {
-    return a.getTime() === b.getTime()
+    return a === b
   }
 
   // functions
