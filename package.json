@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/magic/deep",
   "devDependencies": {
-    "@magic/test": "github:magic/test"
+    "@magic/test": "0.0.2"
   },
   "dependencies": {
-    "@magic/types": "github:magic/types"
+    "@magic/types": "0.0.2"
   }
 }
