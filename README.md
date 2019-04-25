@@ -2,11 +2,25 @@
 
 Work with deeply nested objects and arrays.
 
-[![NPM version][npm-badge]][npm-url]
-[![Linux Build Status][travis-badge]][travis-url]
-[![Windows Build Status][appveyor-badge]][appveyor-url]
-[![Coverage Status][coveralls-badge]][coveralls-url]
-[![Greenkeeper badge](greenkeeper-badge)](greenkeeper-url)
+[![NPM version][npm-image]][npm-url]
+[![Linux Build Status][travis-image]][travis-url]
+[![Windows Build Status][appveyor-image]][appveyor-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
+[![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+
+[npm-image]: https://img.shields.io/npm/v/@magic/deep.svg
+[npm-url]: https://www.npmjs.com/package/@magic/deep
+[travis-image]: https://api.travis-ci.org/magic/deep.svg?branch=master
+[travis-url]: https://travis-ci.org/magic/deep
+[appveyor-image]: https://img.shields.io/appveyor/ci/jaeh/deep/master.svg
+[appveyor-url]: https://ci.appveyor.com/project/jaeh/deep/branch/master
+[coveralls-image]: https://coveralls.io/repos/github/magic/deep/badge.svg
+[coveralls-url]: https://coveralls.io/github/magic/deep
+[greenkeeper-image]: https://badges.greenkeeper.io/magic/deep.svg
+[greenkeeper-url]: https://badges.greenkeeper.io/magic/deep.svg
+[snyk-image]: https://snyk.io/test/github/magic/deep/badge.svg
+[snyk-url]: https://snyk.io/test/github/magic/deep
 
 ##### install
 ```bash
@@ -55,16 +69,3 @@ Currently implemented:
   // returns [2, 3, [4]]
 
 ```
-
-
-[npm-badge]: https://img.shields.io/npm/v/@magic/deep.svg
-[npm-url]: https://www.npmjs.com/package/@magic/deep
-[travis-badge]: https://api.travis-ci.org/magic/deep.svg?branch=master
-[travis-url]: https://travis-ci.org/magic/deep
-[appveyor-badge]: https://img.shields.io/appveyor/ci/jaeh/deep/master.svg
-[appveyor-url]: https://ci.appveyor.com/project/jaeh/deep/branch/master
-[coveralls-badge]: https://coveralls.io/repos/github/magic/deep/badge.svg
-[coveralls-url]: https://coveralls.io/github/magic/deep
-[greenkeeper-url]: https://greenkeeper.io
-[greenkeeper-badge]: https://badges.greenkeeper.io/magic/deep.svg
-
