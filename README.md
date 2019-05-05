@@ -13,8 +13,8 @@ Work with deeply nested objects and arrays.
 [npm-url]: https://www.npmjs.com/package/@magic/deep
 [travis-image]: https://api.travis-ci.org/magic/deep.svg?branch=master
 [travis-url]: https://travis-ci.org/magic/deep
-[appveyor-image]: https://img.shields.io/appveyor/ci/jaeh/deep/master.svg
-[appveyor-url]: https://ci.appveyor.com/project/jaeh/deep/branch/master
+[appveyor-image]: https://img.shields.io/appveyor/ci/magic/deep/master.svg
+[appveyor-url]: https://ci.appveyor.com/project/magic/deep/branch/master
 [coveralls-image]: https://coveralls.io/repos/github/magic/deep/badge.svg
 [coveralls-url]: https://coveralls.io/github/magic/deep
 [greenkeeper-image]: https://badges.greenkeeper.io/magic/deep.svg
