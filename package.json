@@ -26,6 +26,6 @@
     "@magic/test": "0.0.12"
   },
   "dependencies": {
-    "@magic/types": "0.0.4"
+    "@magic/types": "0.0.5"
   }
 }
