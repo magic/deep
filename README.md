@@ -11,8 +11,8 @@ Work with deeply nested objects and arrays.
 
 [npm-image]: https://img.shields.io/npm/v/@magic/deep.svg
 [npm-url]: https://www.npmjs.com/package/@magic/deep
-[travis-image]: https://api.travis-ci.org/magic/deep.svg?branch=master
-[travis-url]: https://travis-ci.org/magic/deep
+[travis-image]: https://api.travis-ci.com/magic/deep.svg?branch=master
+[travis-url]: https://travis-ci.com/magic/deep
 [appveyor-image]: https://img.shields.io/appveyor/ci/magic/deep/master.svg
 [appveyor-url]: https://ci.appveyor.com/project/magic/deep/branch/master
 [coveralls-image]: https://coveralls.io/repos/github/magic/deep/badge.svg
