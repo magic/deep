@@ -27,9 +27,9 @@ export const equal = (a, b) => {
     return a === b
   }
 
-  if (is.arguments(a)) {
-    return is.length.eq(a, b)
-  }
+  // if (is.<arguments(a)) {
+  //  return is.length.eq(a, b)
+  // }
 
   // identical 'prototype' property.
   if (a.prototype !== b.prototype) {
