@@ -1,8 +1,8 @@
 // Written by Substack <3
 
-const is = require('@magic/types')
+import is from '@magic/types'
 
-const equal = (a, b) => {
+export const equal = (a, b) => {
   // curry
   if (is.undefined(b)) {
     if (is.undefined(a)) {
@@ -98,4 +98,4 @@ const equal = (a, b) => {
   return typeof a === typeof b
 }
 
-module.exports = equal
+export default equal

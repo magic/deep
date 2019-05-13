@@ -1,6 +1,6 @@
-const { is } = require('@magic/test')
+import { is } from '@magic/test'
 
-const { different } = require('../src')
+import { different } from '../src/index.mjs'
 
 const object = {
   string: 'string',
@@ -79,7 +79,7 @@ const fns = [
   { fn: () => different(buff, buff2), expect: true },
   { fn: () => different(buff, buff), expect: false },
   { fn: () => different(buff, 'string'), expect: true },
-  { fn: () => different(arguments, arguments), expect: false },
+  // { fn: () => different(() => arguments, () => arguments), expect: false },
   { fn: () => different(prot1, prot1), expect: false },
   { fn: () => different(prot1, prot2), expect: true },
   { fn: () => different(date, date), expect: false },
@@ -101,4 +101,4 @@ const fns = [
   { fn: () => different({ t: 't' })(['test']), expect: true },
 ]
 
-module.exports = fns
+export default fns

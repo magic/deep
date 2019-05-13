@@ -1,6 +1,6 @@
-const is = require('@magic/types')
+import is from '@magic/types'
 
-const loop = (fn, ...items) => {
+export const loop = (fn, ...items) => {
   if (is.empty(items)) {
     if (is.fn(fn)) {
       return fn(...items)
@@ -32,4 +32,4 @@ const loop = (fn, ...items) => {
   return items.map(item => loop(fn, item))
 }
 
-module.exports = loop
+export default loop

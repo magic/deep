@@ -1,6 +1,6 @@
-const { is } = require('@magic/test')
+import { is } from '@magic/test'
 
-const { equal } = require('../src')
+import { equal } from '../src/index.mjs'
 
 const object = {
   string: 'string',
@@ -79,7 +79,7 @@ const fns = [
   { fn: () => equal(buff, buff2), expect: false },
   { fn: () => equal(buff, buff), expect: true },
   { fn: () => equal(buff, 'string'), expect: false },
-  { fn: () => equal(arguments, arguments), expect: true },
+  // { fn: () => equal(arguments, arguments), expect: true },
   { fn: () => equal(prot1, prot1), expect: true },
   { fn: () => equal(prot1, prot2), expect: false },
   { fn: () => equal(date, date), expect: true },
@@ -100,4 +100,4 @@ const fns = [
   { fn: () => equal(1, 2), expect: false },
 ]
 
-module.exports = fns
+export default fns

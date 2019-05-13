@@ -1,6 +1,6 @@
-const is = require('@magic/types')
+import is from '@magic/types'
 
-const merge = (o1, o2) => {
+export const merge = (o1, o2) => {
   if (typeof o1 === 'undefined') {
     return o2
   } else if (typeof o2 === 'undefined') {
@@ -34,4 +34,4 @@ const merge = (o1, o2) => {
   return [o1, o2]
 }
 
-module.exports = merge
+export default merge

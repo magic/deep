@@ -1,6 +1,6 @@
-const { is } = require('@magic/test')
+import { is } from '@magic/test'
 
-const { flatten } = require('../src')
+import { flatten } from '../src/index.mjs'
 
 const date = new Date()
 
@@ -47,4 +47,4 @@ const fns = [
   },
 ]
 
-module.exports = fns
+export default fns

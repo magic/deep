@@ -1,8 +1,8 @@
-const is = require('@magic/types')
+import is from '@magic/types'
 
-const equal = require('./equal')
+import equal from './equal.mjs'
 
-const different = (a, b) => {
+export const different = (a, b) => {
   if (is.undefined(b)) {
     if (is.undefined(a)) {
       // this most likely is an argument error.
@@ -15,4 +15,4 @@ const different = (a, b) => {
   return !equal(a, b)
 }
 
-module.exports = different
+export default different

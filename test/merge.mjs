@@ -1,8 +1,8 @@
-const { is } = require('@magic/test')
+import { is } from '@magic/test'
 
-const merge = require('../src/merge')
+import merge from '../src/merge.mjs'
 
-module.exports = [
+export default [
   {
     fn: () => merge([1], 2),
     expect: is.deep.eq([1, 2]),

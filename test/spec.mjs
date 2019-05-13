@@ -1,6 +1,6 @@
-const { is } = require('@magic/test')
+import { is } from '@magic/test'
 
-const deep = require('../src')
+import * as deep from '../src/index.mjs'
 
 const funcs = [
   deep.equal,
@@ -10,6 +10,7 @@ const funcs = [
   deep.diff,
   deep.loop,
   deep.flatten,
+  () => 'mockDefaultExport',
 ]
 
 const fns = [
@@ -19,4 +20,4 @@ const fns = [
   { fn: () => Object.keys(deep), expect: is.length.equal(funcs) },
 ]
 
-module.exports = fns
+export default fns
