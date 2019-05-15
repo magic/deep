@@ -1,8 +1,13 @@
 {
   "name": "@magic/deep",
   "version": "0.0.2",
+  "author": "Wizards & Witches",
   "description": "manipulate nested objects and arrays",
-  "main": "src/index.js",
+  "homepage": "https://github.com/magic/deep",
+  "license": "AGPL-3.0",
+  "main": "src/index.mjs",
+  "module": "src/index.mjs",
+  "type": "module",
   "scripts": {
     "start": "t -p",
     "test": "t",
@@ -10,7 +15,6 @@
     "format:check": "f",
     "calls": "calls"
   },
-  "author": "Jascha Ehrenreich <jascha@jaeh.at>",
   "repository": {
     "type": "git",
     "url": "https://github.com/magic/deep"
@@ -21,11 +25,16 @@
   "files": [
     "src"
   ],
-  "homepage": "https://github.com/magic/deep",
+  "dependencies": {
+    "@magic/types": "0.1.1"
+  },
   "devDependencies": {
     "@magic/test": "0.1.0"
   },
-  "dependencies": {
-    "@magic/types": "0.1.1"
-  }
+  "contributors": [
+    {
+      "name": "jascha ehrenreich",
+      "github": "jaeh"
+    }
+  ]
 }
