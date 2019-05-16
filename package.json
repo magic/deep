@@ -26,10 +26,10 @@
     "src"
   ],
   "dependencies": {
-    "@magic/types": "0.1.1"
+    "@magic/types": "0.1.2"
   },
   "devDependencies": {
-    "@magic/test": "0.1.1"
+    "@magic/test": "0.1.4"
   },
   "contributors": [
     {
