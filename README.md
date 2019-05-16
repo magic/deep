@@ -69,3 +69,8 @@ Currently implemented:
   // returns [2, 3, [4]]
 
 ```
+
+### Changelog
+
+#### v0.1.0
+use ecmascript modules instead of commonjs.
