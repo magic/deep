@@ -30,10 +30,10 @@ Work with deeply nested objects and arrays.
 ##### import
 ```javascript
   // single function
-  const { equal, flatten, loop } = require('@magic/deep')
+  import { equal, flatten, loop } from '@magic/deep'
 
   // object with all functions
-  const deep = require('@magic/deep')
+  import deep from '@magic/deep'
   // deep.equal, deep.flatten, deep.loop
 
 ```
