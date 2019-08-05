@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/magic/deep"
+    "url": "https://github.com/magic/deep.git"
   },
   "bugs": {
     "url": "https://github.com/magic/deep/issues"
@@ -29,7 +29,7 @@
     "@magic/types": "0.1.2"
   },
   "devDependencies": {
-    "@magic/test": "0.1.11"
+    "@magic/test": "0.1.12"
   },
   "contributors": [
     {
