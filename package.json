@@ -15,6 +15,9 @@
     "format:check": "f",
     "calls": "calls"
   },
+  "engine": {
+    "node": ">=12.13.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/magic/deep.git"
