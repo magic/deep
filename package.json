@@ -32,7 +32,7 @@
     "@magic/types": "0.1.2"
   },
   "devDependencies": {
-    "@magic/test": "0.1.17"
+    "@magic/test": "0.1.18"
   },
   "contributors": [
     {
