@@ -28,10 +28,29 @@ const fns = [
   { fn: () => loop(['test'], a => a), expect: is.deep.equal(['test']) },
   { fn: () => loop(e => e + 1, [1, 2, [3]]), expect: is.deep.equal([2, 3, [4]]) },
   { fn: () => loop([2, 3, [1]], e => e + 1), expect: is.deep.equal([3, 4, [2]]) },
-  { fn: () => loop(() => true, () => false), info: 'First function wraps around second' },
-  { fn: () => loop(() => true, () => false), info: 'First function wraps around second' },
   {
-    fn: () => loop(() => true, false, () => false),
+    fn: () =>
+      loop(
+        () => true,
+        () => false,
+      ),
+    info: 'First function wraps around second',
+  },
+  {
+    fn: () =>
+      loop(
+        () => true,
+        () => false,
+      ),
+    info: 'First function wraps around second',
+  },
+  {
+    fn: () =>
+      loop(
+        () => true,
+        false,
+        () => false,
+      ),
     expect: is.deep.equal([true, true]),
     info: 'First function wraps all arguments',
   },
