@@ -9,7 +9,7 @@
   "module": "src/index.mjs",
   "type": "module",
   "scripts": {
-    "start": "t -p",
+    "start": "t",
     "test": "t",
     "format": "f -w",
     "format:check": "f",
