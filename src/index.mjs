@@ -17,6 +17,7 @@ export const merge = me
 export default {
   equal,
   equals,
+  eq,
   different,
   diff,
   flatten,
