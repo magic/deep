@@ -100,3 +100,6 @@ deep.merge({ key: { val: 1, str: 'test' } }, { key: { val: 2, str: 'overwritten'
 
 #### v0.1.0
 use ecmascript modules instead of commonjs.
+
+#### v0.1.1 - unreleased
+* update readme
