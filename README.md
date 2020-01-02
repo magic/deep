@@ -24,50 +24,76 @@ Work with deeply nested objects and arrays.
 
 ##### install
 ```bash
-  npm i --save magic/deep
+npm i --save --save-exact @magic/deep
 ```
 
 ##### import
 ```javascript
-  // single function
-  import { equal, flatten, loop } from '@magic/deep'
+// single function
+import { equal, flatten, loop } from '@magic/deep'
 
-  // object with all functions
-  import deep from '@magic/deep'
-  // deep.equal, deep.flatten, deep.loop
-
+// object with all functions
+import deep from '@magic/deep'
+// deep.equal, deep.flatten, deep.loop
 ```
 
 Currently implemented:
 
 ##### deep.equal
 ```javascript
-  // test equality
-  deep.equal(['shallow', ['deep']], ['shallow', ['deep']])
-  // true
+// test equality
+deep.equal(['shallow', ['deep']], ['shallow', ['deep']])
+// true
 
+// alias
+deep.equals
 ```
+
+##### deep.different
+```javascript
+// test difference
+deep.different(['shallow', ['deep']], ['shallow', ['deep']])
+// false
+
+// alias
+deep.diff
+```
+
+
 ##### deep.flatten
 ```javascript
-  // flatten a deeply nested array
-  deep.flatten(['shallow', ['deep']])
-  // ['shallow', 'deep']
+// flatten a deeply nested array
+deep.flatten(['shallow', ['deep']])
+// ['shallow', 'deep']
 ```
 
 ##### deep.loop
 ```javascript
-  // apply function add
-  const add = e => e + 1
+// apply function add
+const add = e => e + 1
 
-  // for each item
-  const items = [1, 2, [3]]
+// for each item
+const items = [1, 2, [3]]
 
-  // in a deeply nested array
-  deep.loop(add, items)
-  // or
-  deep.loop(items, add)
-  // returns [2, 3, [4]]
+// using a deeply nested array
+deep.loop(add, items)
+// or
+deep.loop(items, add)
+// returns [2, 3, [4]]
+```
 
+##### deep.merge
+```javascript
+// merge objects and arrays, with infinite recursion if needed.
+// this can be slow...
+
+deep.merge({ obj1Key: { val: 1 } }, { obj2Key: { val: 2 } } )
+
+// { obj1Key: { val: 1}, obj2Key: { val: 2 } }
+
+deep.merge({ key: { val: 1, str: 'test' } }, { key: { val: 2, str: 'overwritten' } })
+
+// { key: { val: 2, str: 'overwritten' } }
 ```
 
 ### Changelog
