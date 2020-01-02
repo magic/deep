@@ -1,6 +1,6 @@
 {
   "name": "@magic/deep",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Wizards & Witches",
   "description": "manipulate nested objects and arrays",
   "homepage": "https://github.com/magic/deep",
