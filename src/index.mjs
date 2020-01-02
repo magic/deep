@@ -1,12 +1,13 @@
-import { equal as eq } from './equal.mjs'
+import { equal as equ } from './equal.mjs'
 import { different as di } from './different.mjs'
 
 import { loop as lo } from './loop.mjs'
 import { merge as me } from './merge.mjs'
 import { flatten as fl } from './flatten.mjs'
 
-export const equal = eq
-export const equals = eq
+export const equal = equ
+export const equals = equ
+export const eq = equ
 export const different = di
 export const diff = di
 
