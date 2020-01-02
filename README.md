@@ -103,3 +103,5 @@ use ecmascript modules instead of commonjs.
 
 #### v0.1.1 - unreleased
 * update readme
+* also export deep.eq alias for deep.equal
+
