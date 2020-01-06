@@ -97,12 +97,16 @@ deep.merge({ key: { val: 1, str: 'test' } }, { key: { val: 2, str: 'overwritten'
 
 ### Changelog
 
-#### v0.1.0
+#### 0.1.0
 use ecmascript modules instead of commonjs.
 
-#### v0.1.1
+#### 0.1.1
 * update readme
 * also export deep.eq alias for deep.equal
 
-#### v0.1.2 - unreleased
+#### 0.1.2
+* require node 13.5.0
+* use deep.equal and deep.different from @magic/types
+
+#### 0.1.3 - unreleased
 ...
