@@ -33,6 +33,7 @@
     "@magic/types": "0.1.7"
   },
   "devDependencies": {
+    "@magic/cases": "0.0.2",
     "@magic/test": "0.1.27"
   },
   "contributors": [
