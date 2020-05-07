@@ -16,7 +16,7 @@
     "calls": "calls"
   },
   "engine": {
-    "node": ">=13.5.0"
+    "node": ">=14.2.0"
   },
   "engineStrict": true,
   "repository": {
