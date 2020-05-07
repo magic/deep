@@ -108,5 +108,8 @@ use ecmascript modules instead of commonjs.
 * require node 13.5.0
 * use deep.equal and deep.different from @magic/types
 
-#### 0.1.3 - unreleased
+#### 0.1.3
+bump required node version to 14.2.0
+
+#### 0.1.4 - unreleased
 ...
