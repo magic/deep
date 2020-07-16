@@ -30,7 +30,6 @@
     "src"
   ],
   "dependencies": {
-    "@magic-modules/no-spy": "0.0.1",
     "@magic/types": "0.1.12"
   },
   "devDependencies": {
