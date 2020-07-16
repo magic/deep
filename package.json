@@ -36,7 +36,7 @@
   "devDependencies": {
     "@magic/cases": "0.0.3",
     "@magic/format": "0.0.11",
-    "@magic/test": "0.1.50"
+    "@magic/test": "0.1.51"
   },
   "contributors": [
     {
