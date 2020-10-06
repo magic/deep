@@ -111,5 +111,8 @@ use ecmascript modules instead of commonjs.
 #### 0.1.3
 bump required node version to 14.2.0
 
-#### 0.1.4 - unreleased
+#### 0.1.4 
+update dependencies
+
+#### 0.1.5 - unreleased
 ...
