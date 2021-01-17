@@ -30,10 +30,9 @@
     "src"
   ],
   "dependencies": {
-    "@magic/types": "0.1.13"
+    "@magic/types": "0.1.14"
   },
   "devDependencies": {
-    "@magic/cases": "0.0.3",
     "@magic/format": "0.0.20",
     "@magic/test": "0.1.59"
   },
