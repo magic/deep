@@ -30,7 +30,7 @@
     "src"
   ],
   "dependencies": {
-    "@magic/types": "0.1.14"
+    "@magic/types": "0.1.15"
   },
   "devDependencies": {
     "@magic/format": "0.0.20",
