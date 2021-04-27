@@ -30,11 +30,11 @@
     "src"
   ],
   "dependencies": {
-    "@magic/types": "0.1.14"
+    "@magic/types": "0.1.15"
   },
   "devDependencies": {
     "@magic/format": "0.0.22",
-    "@magic/test": "0.1.64"
+    "@magic/test": "0.1.66"
   },
   "contributors": [
     {
