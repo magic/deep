@@ -118,5 +118,8 @@ update dependencies
 * bump required node version to 14.15.4
 * update dependencies
 
-##### 0.1.6 - unreleased
+##### 0.1.6
+* merge now checks if o2.hasOwnProperty is a function before using it to check if we should overwrite keys of o1 or not.
+
+##### 0.1.7 - unreleased
 ...
