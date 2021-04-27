@@ -58,7 +58,7 @@ const fns = [
   { fn: () => equal(0, 1), expect: false },
   { fn: () => equal(otherObject, differentObject), expect: false },
   // functions do not compare as equal if their toString results are different
-  { fn: () => equal({ t: () => {} }, { t: function() {} }), expect: false },
+  { fn: () => equal({ t: () => {} }, { t: function () {} }), expect: false },
   { fn: () => equal({ t: () => {} }, { t: () => {} }), expect: true },
   { fn: () => equal({ t: (a, b) => a + b }, { t: (a, b) => a + b }), expect: true },
   { fn: () => equal({ t: (a, b) => [a, b] }, { t: (a, b) => [a, b] }), expect: true },
