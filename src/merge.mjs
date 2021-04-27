@@ -16,8 +16,9 @@ export const merge = (o1, o2) => {
   if (is.mergeable(o1) && is.mergeable(o2)) {
     const keys = Object.keys({ ...o1, ...o2 })
     const final = {}
+
     keys.forEach(key => {
-      if (!o2.hasOwnProperty(key)) {
+      if (!is.function(o2.hasOwnProperty) || !o2.hasOwnProperty(key)) {
         final[key] = o1[key]
       } else {
         final[key] = merge(o1[key], o2[key])
