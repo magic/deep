@@ -1,9 +1,9 @@
 import is from '@magic/types'
 
 export const merge = (o1, o2) => {
-  if (typeof o1 === 'undefined') {
+  if (is.undefined(o1)) {
     return o2
-  } else if (typeof o2 === 'undefined') {
+  } else if (is.undefined(o2)) {
     return o1
   }
 
