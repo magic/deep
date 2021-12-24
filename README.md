@@ -128,5 +128,8 @@ update @magic/types to avoid circular dependency
 * update dependencies
 * use @magic/types for all type comparisons
 
-##### 0.1.9 - unreleased
+##### 0.1.9
+update dependencies
+
+##### 0.1.10 - unreleased
 ...
