@@ -134,5 +134,8 @@ update dependencies
 ##### 0.1.10
 update dependencies
 
-##### 0.1.11 - unreleased
+##### 0.1.11
+update dependencies
+
+##### 0.1.12 - unreleased
 ...
