@@ -33,8 +33,8 @@
     "@magic/types": "0.1.19"
   },
   "devDependencies": {
-    "@magic/format": "0.0.38",
-    "@magic/test": "0.2.8"
+    "@magic/format": "0.0.39",
+    "@magic/test": "0.2.10"
   },
   "contributors": [
     {
