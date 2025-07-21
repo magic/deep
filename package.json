@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@magic/format": "0.0.50",
-    "@magic/test": "0.2.15"
+    "@magic/test": "0.2.20"
   },
   "contributors": [
     {
