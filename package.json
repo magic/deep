@@ -11,6 +11,8 @@
   "type": "module",
   "scripts": {
     "start": "t",
+    "build": "tsc && npm run format",
+    "prepublishOnly": "npm run build",
     "test": "t",
     "format": "f -w",
     "format:check": "f",
