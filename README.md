@@ -180,6 +180,10 @@ update dependencies
 - add typescript types
 - update dependencies
 
-##### 0.1.18 - unreleased
+##### 0.1.18
+
+- actually add types to pkg files array
+
+##### 0.0.19 - unreleased
 
 ...
