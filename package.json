@@ -30,7 +30,8 @@
     "url": "https://github.com/magic/deep/issues"
   },
   "files": [
-    "src"
+    "src",
+    "types"
   ],
   "dependencies": {
     "@magic/types": "0.1.26"
