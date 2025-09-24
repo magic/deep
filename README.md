@@ -48,7 +48,7 @@ deep.equal(['shallow', ['deep']], ['shallow', ['deep']])
 // true
 
 // alias
-deep.equals, deep.eq
+// deep.equals, deep.eq
 ```
 
 ##### deep.different
@@ -59,7 +59,7 @@ deep.different(['shallow', ['deep']], ['shallow', ['deep']])
 // false
 
 // alias
-deep.diff
+// deep.diff
 ```
 
 ##### deep.flatten
@@ -159,22 +159,27 @@ update dependencies
 
 update dependencies
 
-##### 0.0.13
+##### 0.1.13
 
 update dependencies
 
-##### 0.0.14
+##### 0.1.14
 
 update dependencies
 
-##### 0.0.15
+##### 0.1.15
 
 update dependencies
 
-##### 0.0.16
+##### 0.1.16
 
 update dependencies
 
-##### 0.0.17 - unreleased
+##### 0.1.17
+
+- add typescript types
+- update dependencies
+
+##### 0.1.18 - unreleased
 
 ...
