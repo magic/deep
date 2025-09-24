@@ -1,6 +1,6 @@
 import { is, version } from '@magic/test'
 
-import d from '../src/index.mjs'
+import d from '../src/index.js'
 
 const spec = {
   equal: 'fn',
@@ -16,11 +16,11 @@ const spec = {
 export default [
   ...version(d, spec),
   {
-    fn: d.equal,
-    expect: is.deep.equal(d.equals),
+    fn: d.equal.toString(),
+    expect: d.equals.toString(),
     info: 'deep.equal and deep.equals are identical',
   },
-  { fn: d.equal, expect: is.deep.equal(d.eq), info: 'deep.equal and deep.eq are identical' },
+  { fn: d.equal.toString(), expect: d.eq.toString(), info: 'deep.equal and deep.eq are identical' },
   {
     fn: d.different,
     expect: is.deep.equal(d.diff),

@@ -1,6 +1,6 @@
 import { is } from '@magic/test'
 
-import merge from '../src/merge.mjs'
+import merge from '../src/merge.js'
 
 export default [
   {

@@ -1,6 +1,6 @@
 import { is } from '@magic/test'
 
-import { flatten } from '../src/index.mjs'
+import { flatten } from '../src/index.js'
 
 const date = new Date()
 
