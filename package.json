@@ -5,8 +5,9 @@
   "description": "manipulate nested objects and arrays",
   "homepage": "https://github.com/magic/deep",
   "license": "AGPL-3.0",
-  "main": "src/index.mjs",
-  "module": "src/index.mjs",
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "module": "src/index.js",
   "type": "module",
   "scripts": {
     "start": "t",

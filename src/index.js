@@ -1,8 +1,8 @@
 import is from '@magic/types'
 
-import { loop as lo } from './loop.mjs'
-import { merge as me } from './merge.mjs'
-import { flatten as fl } from './flatten.mjs'
+import { loop as lo } from './loop.js'
+import { merge as me } from './merge.js'
+import { flatten as fl } from './flatten.js'
 
 export const equal = is.deep.equal
 export const equals = is.deep.equal
