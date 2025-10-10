@@ -101,6 +101,31 @@ const fns = [
     expect: is.deep.equal([true, true]),
     info: 'First function wraps all arguments, returning array of true values',
   },
+  {
+    fn: () => loop('a', 'b', 'c'),
+    expect: is.deep.equal(['a', 'b', 'c']),
+    info: 'Returns tuple array when fn is not a function and multiple items are provided',
+  },
+  {
+    fn: () => loop('notAFunction', 1, 2, 3),
+    expect: is.deep.equal(['notAFunction', 1, 2, 3]),
+    info: 'Handles non-function fn with no function found in items',
+  },
+  {
+    fn: () => loop(a => a, undefined),
+    expect: undefined,
+    info: 'Handles undefined target gracefully by returning fn(undefined)',
+  },
+  {
+    fn: () => loop('notAFunction', 'x', 'y'),
+    expect: is.deep.equal(['notAFunction', 'x', 'y']),
+    info: 'Handles case where fn is not a function and items contain no function (no swap performed)',
+  },
+  {
+    fn: () => loop('noFnHere', 'stillNoFn', ['nested', 'array']),
+    expect: is.deep.equal(['noFnHere', 'stillNoFn', ['nested', 'array']]),
+    info: 'Covers branch where fn is not a function and no function exists in items (functionIndex === -1)',
+  },
 ]
 
 export default fns
