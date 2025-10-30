@@ -64,12 +64,12 @@ export default [
   },
   {
     fn: () => merge({ t: { t: 4 } }, 'test'),
-    expect: is.deep.eq([{ t: { t: 4 } }, 'test']),
+    expect: [{ t: { t: 4 } }, 'test'],
     info: 'if given an object and a string, return them as an array',
   },
   {
     fn: () => merge({ t: { t: 4 } }),
-    expect: is.deep.eq({ t: { t: 4 } }),
+    expect: { t: { t: 4 } },
     info: 'if no second argument given, return the first unchanged',
   },
 ]
