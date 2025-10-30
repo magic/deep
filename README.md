@@ -188,6 +188,10 @@ update dependencies
 
 - update dependencies
 
-##### 0.0.20 - unreleased
+##### 0.0.20
+
+- update dependencies
+
+##### 0.0.21 - unreleased
 
 ...
