@@ -34,13 +34,13 @@
     "types"
   ],
   "dependencies": {
-    "@magic/types": "0.1.30"
+    "@magic/types": "0.1.37"
   },
   "devDependencies": {
-    "@magic/format": "0.0.68",
-    "@magic/test": "0.2.25",
-    "@types/node": "24.9.2",
-    "typescript": "5.9.3"
+    "@magic/format": "0.0.73",
+    "@magic/test": "0.3.12",
+    "@types/node": "25.9.2",
+    "typescript": "6.0.3"
   },
   "contributors": [
     {
