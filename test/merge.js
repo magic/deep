@@ -39,6 +39,11 @@ export default [
     info: 'if first argument is array and second is numerical, they get concated',
   },
   {
+    fn: () => merge([1], [2, 3]),
+    expect: is.deep.eq([1, 2, 3]),
+    info: 'if both arguments are arrays, they get concatenated',
+  },
+  {
     fn: () => merge(1, [2, { t: 3 }]),
     expect: is.deep.eq([1, 2, { t: 3 }]),
     info: 'pass numerical as first argument and array as second. merge first arg into second.',
@@ -71,5 +76,31 @@ export default [
     fn: () => merge({ t: { t: 4 } }),
     expect: { t: { t: 4 } },
     info: 'if no second argument given, return the first unchanged',
+  },
+  {
+    fn: () => merge({ a: 1, b: 2 }, Object.create({ c: 3 })),
+    expect: is.deep.eq({ a: 1, b: 2 }),
+    info: 'handles object with inherited hasOwnProperty, keeping only own properties from first arg',
+  },
+  {
+    fn: () => merge({ a: 1 }, Object.create({ a: 2 })),
+    expect: is.deep.eq({ a: 1 }),
+    info: 'key exists on o1 but only inherited on o2, keeps o1 value',
+  },
+  {
+    fn: () => {
+      const result = merge({ a: 1, b: 2 }, { a: 10, hasOwnProperty: null })
+      return result.a === 1 && result.b === 2
+    },
+    expect: true,
+    info: 'hasOwnProperty is null (not a function), uses o1 values',
+  },
+  {
+    fn: () => {
+      const result = merge({ x: 1 }, { x: 2, hasOwnProperty: 'string' })
+      return result.x === 1
+    },
+    expect: true,
+    info: 'hasOwnProperty is a string, not callable, uses o1 values',
   },
 ]

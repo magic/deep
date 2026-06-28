@@ -76,6 +76,11 @@ const fns = [
     info: 'Loop increments numbers including nested array elements',
   },
   {
+    fn: () => loop(x => x * 2, [1, 2], 3),
+    expect: is.deep.equal([[2, 4], 6]),
+    info: 'Non-hasOptions branch with nested array processes arrays recursively',
+  },
+  {
     fn: () =>
       loop(
         () => true,
@@ -125,6 +130,16 @@ const fns = [
     fn: () => loop('noFnHere', 'stillNoFn', ['nested', 'array']),
     expect: is.deep.equal(['noFnHere', 'stillNoFn', ['nested', 'array']]),
     info: 'Covers branch where fn is not a function and no function exists in items (functionIndex === -1)',
+  },
+  {
+    fn: () => loop(x => x + '1', 'string', {}),
+    expect: is.deep.equal([{}, 'string1']),
+    info: 'hasOptions branch applies fn to non-object/non-array items (strings)',
+  },
+  {
+    fn: () => loop(x => x * 2, 5, {}),
+    expect: is.deep.equal([{}, 10]),
+    info: 'hasOptions branch applies fn to number items',
   },
 ]
 
